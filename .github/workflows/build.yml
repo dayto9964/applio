@@ -29,6 +29,10 @@ jobs:
           pip install --upgrade pip
           pip install cython==0.29.36 buildozer
 
+      - name: Clean conflicting requirements
+        run: |
+          echo "python3,kivy" > requirements.txt
+
       - name: Build with Buildozer
         run: |
           buildozer -v android debug
